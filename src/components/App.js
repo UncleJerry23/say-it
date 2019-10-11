@@ -12,7 +12,7 @@ export default function App() {
     <Router >
       <Switch>
         <Route exact path="/" component={SplashPage} />
-        <Route  path="/thoughts" component={Thoughts} />
+        <Route  path="/thoughts/:hours" component={Thoughts} />
       </Switch>
     </Router>
   );

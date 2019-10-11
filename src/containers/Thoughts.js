@@ -12,11 +12,34 @@ import ThoughtList from '../components/ThoughtList';
 class Thoughts extends PureComponent {
   static propTypes = {
     fetchThoughts: PropTypes.func.isRequired,
-    thoughts: PropTypes.array
+    thoughts: PropTypes.array,
+    match: PropTypes.object.isRequired
   };
 
   componentDidMount() {
     this.props.fetchThoughts();
+    this.setState({ hours: this.props.match.params.hours });
+  }
+
+  componentDidUpdate(prevProps) {
+    if(prevProps.match.params.hours != this.props.match.params.hours) {
+      this.setState({ 
+        hours: this.props.match.params.hours,
+        menuOpen: false
+      });
+    }
+  }
+
+  closeMenu = ({ isOpen }) => {
+    this.setState({ 
+      hours: this.props.match.params.hours,
+      menuOpen: isOpen
+    });
+  }
+
+  state = {
+    hours: null,
+    menuOpen: false
   }
 
   render() {
@@ -25,7 +48,7 @@ class Thoughts extends PureComponent {
       <>
         <Header>
           <section className="burger">
-            <Menu>
+            <Menu isOpen={this.state.menuOpen} onStateChange={ this.closeMenu }>
               <Link to='/' className="menu-item" href="/">SayIt</Link>
               <Link to='/thoughts/24' className="menu-item" href="/burgers">Today</Link>
               <Link to='/thoughts/12' className="menu-item" href="/pizzas">Last 12 Hours</Link>
