@@ -1,16 +1,22 @@
 import styled from 'styled-components';
 
-const Header = styled.section`
+const HeaderStyle = styled.section`
   height: 10%;
   min-height: 5rem;
   display: grid;
   grid-template-columns: 1fr 70% 1fr;
+  position: sticky;
+  top: 0;
 
   .headerText {
       display: flex;
       justify-content: center;
       align-items: top;
       margin: 1em;
+  }
+
+  a {
+    text-decoration: none;
   }
   
   #burger {
@@ -99,5 +105,5 @@ const Header = styled.section`
 `;
 
 export {
-  Header
+  HeaderStyle
 };

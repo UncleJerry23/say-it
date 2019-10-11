@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const SplashFrom = styled.form`
-  height: 90%;
+  height: 85%;
   display: grid;
   grid-template-rows: 80%;
 
@@ -10,6 +10,7 @@ const SplashFrom = styled.form`
     justify-content: center;
     align-items: top;
   }
+
 
   textarea {
     width: 90%;

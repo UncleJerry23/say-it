@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { slide as Menu } from 'react-burger-menu';
-import { Header } from '../styles/header';
+import { HeaderStyle } from '../styles/header';
 import { selectThoughts } from '../selectors/thought-selector';
 import { getThoughts } from '../actions/thought-actions';
 import ThoughtList from '../components/ThoughtList';
+import { timeFilter } from '../utils/timeFilter';
 
 
 class Thoughts extends PureComponent {
@@ -43,10 +44,10 @@ class Thoughts extends PureComponent {
   }
 
   render() {
-
+    const displayThoughts = timeFilter(this.state.hours, this.props.thoughts);
     return (
       <>
-        <Header>
+        <HeaderStyle>
           <section className="burger">
             <Menu isOpen={this.state.menuOpen} onStateChange={ this.closeMenu }>
               <Link to='/' className="menu-item" href="/">SayIt</Link>
@@ -58,14 +59,14 @@ class Thoughts extends PureComponent {
             </Menu>
           </section>
           <div className="headerText">
-            <h1>Say It</h1>
+            <Link to="/"><h1>Say It</h1></Link>
           </div>
           <div className="headerText">
             <h2>{this.state.hours} Hours</h2>
           </div>
-        </Header>
+        </HeaderStyle>
 
-        <ThoughtList thoughts={this.props.thoughts} />
+        <ThoughtList thoughts={displayThoughts} />
       </>
     );
   }

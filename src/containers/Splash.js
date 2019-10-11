@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { SplashFrom } from '../styles/splash-form';
 import { Splash } from '../styles/splash';
-import { Header } from '../styles/header';
+import { HeaderStyle } from '../styles/header';
 import { slide as Menu } from 'react-burger-menu';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -17,10 +17,6 @@ class SplashPage extends PureComponent {
     thought: ''
   };
 
-  componentDidMount() {
-    this.props.fetchThoughts();
-  }
-
     handleChange = ({ target }) => {
       this.setState({ [target.name]: target.value });
     }
@@ -33,7 +29,7 @@ class SplashPage extends PureComponent {
 
       return (
         <Splash>
-          <Header>
+          <HeaderStyle>
             <section className="burger">
               <Menu>
                 <Link to='/' className="menu-item" href="/">SayIt</Link>
@@ -44,10 +40,10 @@ class SplashPage extends PureComponent {
                 <Link to='/thoughts/1' className="menu-item" href="/pizzas">This Hour</Link>
               </Menu>
             </section>
-            <div id="sayit">
-              <h1>Say It</h1>
+            <div className="headerText">
+              <Link to="/"><h1>Say It</h1></Link>
             </div>
-          </Header>
+          </HeaderStyle>
 
           <SplashFrom>
             <div>
