@@ -57,8 +57,11 @@ class Thoughts extends PureComponent {
               <Link to='/thoughts/1' className="menu-item" href="/pizzas">This Hour</Link>
             </Menu>
           </section>
-          <div id="sayit">
+          <div className="headerText">
             <h1>Say It</h1>
+          </div>
+          <div className="headerText">
+            <h2>{this.state.hours} Hours</h2>
           </div>
         </Header>
 

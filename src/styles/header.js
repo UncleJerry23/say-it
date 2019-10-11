@@ -2,13 +2,15 @@ import styled from 'styled-components';
 
 const Header = styled.section`
   height: 10%;
+  min-height: 5rem;
   display: grid;
   grid-template-columns: 1fr 70% 1fr;
 
-  #sayit {
+  .headerText {
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: top;
+      margin: 1em;
   }
   
   #burger {
@@ -20,6 +22,12 @@ const Header = styled.section`
   h1 {
     color: #7800A2;
     font-size: 2em;
+    font-family: 'Fugaz One', cursive;
+  }
+
+  h2 {
+    color: #7800A2;
+    font-size: .7em;
     font-family: 'Fugaz One', cursive;
   }
 
