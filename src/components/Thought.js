@@ -5,7 +5,7 @@ import { Blurb } from '../styles/blurb';
 function Thought({ message }) {
   return (
     <Blurb>
-      <p>{message.thought}</p>
+      <p>{message.message}</p>
     </Blurb>
   );
 }

@@ -6,11 +6,11 @@ import { slide as Menu } from 'react-burger-menu';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { getThoughts } from '../actions/thought-actions';
+import { createThought } from '../actions/thought-actions';
 
 class SplashPage extends PureComponent {
   static propTypes = {
-    fetchThoughts: PropTypes.func.isRequired
+    sendThought: PropTypes.func.isRequired
   };
 
   state = {
@@ -23,6 +23,7 @@ class SplashPage extends PureComponent {
 
     handleSubmit = event => {
       event.preventDefault();
+      this.props.sendThought(this.state.thought);
     }
 
     render() {
@@ -65,8 +66,8 @@ class SplashPage extends PureComponent {
 // });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchThoughts() {
-    dispatch(getThoughts());
+  sendThought(message) {
+    dispatch(createThought(message));
   }
 });
 
