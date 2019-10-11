@@ -1,4 +1,30 @@
-export function fetchThought(thought) {
-  return thought;
+export function fetchThoughts() {
+
+  return [
+    {
+      thought: 'heres my thought about the day',
+      time: new Date()
+    },
+    {
+      thought: 'heres my thought about the day',
+      time: new Date()
+    },
+    {
+      thought: 'heres my thought about the day',
+      time: new Date()
+    },
+    {
+      thought: 'heres my thought about the day',
+      time: new Date()
+    },
+    {
+      thought: 'heres my thought about the day',
+      time: new Date()
+    },
+    {
+      thought: 'heres my thought about the day',
+      time: new Date()
+    }
+  ];
 }
 

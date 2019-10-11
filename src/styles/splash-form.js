@@ -11,14 +11,23 @@ const SplashFrom = styled.form`
     align-items: top;
   }
 
-  input {
+  textarea {
     width: 90%;
     height: 95%;
     verticalAlign: top;
     background: #FFC4DE;
     border: none;
     border-radius: 1em;
-    color: #7800A2;
+    color: #D049FF;
+    font-size: 2em;
+    vertical-align: top;  
+    padding: .7em;
+    box-sizing: border-box;
+    font-family: 'Patrick Hand', cursive;
+  }
+
+  textarea::placeholder {
+    color: #E18AFF;
   }
   
   section {
@@ -39,6 +48,7 @@ const SplashFrom = styled.form`
     background: #FFEBF4;
     color: #7800A2;
     font-size: 1.5rem;
+    font-family: 'Noticia Text', serif;
   }
 `;
 

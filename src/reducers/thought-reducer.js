@@ -1,15 +1,16 @@
 const initialState = {
-  thought: 'empty',
+  thoughts: [],
   loading: false,
   err: {},
 };
 
-export default function reducer(state = initialState, action) {
-  const actions = {
-    ['CREATE_ACTION']: () => ({ thought: action.payload }),
-    ['CREATE_ACTION_PENDING']: () => ({ ...state, loading: true }),
-    ['CREATE_ACTION_ERROR']: () => ({ ...state, loading: false, error: action.payload }),
-  };
+const actions = {
+  GET_THOUGHTS: (state, action) => ({ ...state, thoughts: action.payload }),
+  GET_THOUGHTS_PENDING: (state) => ({ ...state, loading: true }),
+  GET_THOUGHTS_ERROR: (state, action) => ({ ...state, loading: false, error: action.payload }),
+};
 
-  return actions[action.type];
+export default function reducer(state = initialState, action) {
+  const transformer = actions[action.type] || (() => state);
+  return transformer(state, action);
 }

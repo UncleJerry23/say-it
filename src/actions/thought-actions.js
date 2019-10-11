@@ -1,9 +1,9 @@
 import { createAction } from 'promise-middleware-redux';
-import { fetchThought } from '../services/thought-service';
+import { fetchThoughts } from '../services/thought-service';
 
 export const [
-  createThought,
-  CREATE_THOUGHT,
-  CREATE_THOUGHT_PENDING,
-  CREATE_THOUGHT_ERROR
-] = createAction('CREATE_THOUGHT', fetchThought);
+  getThoughts,
+  GET_THOUGHTS,
+  GET_THOUGHTS_PENDING,
+  GET_THOUGHTS_ERROR
+] = createAction('GET_THOUGHTS', fetchThoughts);
