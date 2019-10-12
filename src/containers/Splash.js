@@ -10,11 +10,13 @@ import { createThought } from '../actions/thought-actions';
 
 class SplashPage extends PureComponent {
   static propTypes = {
-    sendThought: PropTypes.func.isRequired
+    fetchThoughts: PropTypes.func.isRequired,
+    sendThought: PropTypes.func.isRequired,
+    history: PropTypes.object.isRequired
   };
 
   state = {
-    thought: ''
+    message: ''
   };
 
     handleChange = ({ target }) => {
@@ -23,7 +25,8 @@ class SplashPage extends PureComponent {
 
     handleSubmit = event => {
       event.preventDefault();
-      this.props.sendThought(this.state.thought);
+      this.props.sendThought(this.state.message);
+      this.props.history.push('/thoughts/24');
     }
 
     render() {
@@ -48,7 +51,7 @@ class SplashPage extends PureComponent {
 
           <SplashFrom>
             <div>
-              <textarea name="thought" onChange={this.handleChange} placeholder="Some texty texty"/>
+              <textarea name="message" onChange={this.handleChange} placeholder="Some texty texty"/>
             </div>
             <div>
               <section>
@@ -60,10 +63,6 @@ class SplashPage extends PureComponent {
       );
     }
 }
-
-
-// const mapStateToProps = state => ({
-// });
 
 const mapDispatchToProps = (dispatch) => ({
   sendThought(message) {

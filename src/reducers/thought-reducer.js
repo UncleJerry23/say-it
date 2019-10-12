@@ -1,16 +1,13 @@
+import { thoughtActions } from './reducerHelpers';
+
 const initialState = {
   thoughts: [],
+  newThought: null,
   loading: false,
   err: {},
 };
 
-const actions = {
-  GET_THOUGHTS: (state, action) => ({ ...state, thoughts: action.payload }),
-  GET_THOUGHTS_PENDING: (state) => ({ ...state, loading: true }),
-  GET_THOUGHTS_ERROR: (state, action) => ({ ...state, loading: false, error: action.payload }),
-};
-
 export default function reducer(state = initialState, action) {
-  const transformer = actions[action.type] || (() => state);
+  const transformer = thoughtActions[action.type] || (() => state);
   return transformer(state, action);
 }
