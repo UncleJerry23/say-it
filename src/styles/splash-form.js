@@ -11,6 +11,11 @@ const SplashFrom = styled.form`
     align-items: top;
   }
 
+  a {
+    text-decoration: none;
+    background: #FFEBF4;
+  }
+
 
   textarea {
     width: 90%;
