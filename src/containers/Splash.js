@@ -10,7 +10,6 @@ import { createThought } from '../actions/thought-actions';
 
 class SplashPage extends PureComponent {
   static propTypes = {
-    fetchThoughts: PropTypes.func.isRequired,
     sendThought: PropTypes.func.isRequired,
     history: PropTypes.object.isRequired
   };

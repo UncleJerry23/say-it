@@ -43,18 +43,6 @@ module.exports = {
               modules: true,
               importLoaders: 1
             }
-          },
-          {
-            loader: 'postcss-loader',
-            options: {
-              sourceMap: true,
-              plugins: [
-                require('postcss-import')(),
-                require('autoprefixer')(),
-                require('postcss-nested')(),
-                require('postcss-simple-vars')()
-              ]
-            }
           }
         ]
       },
